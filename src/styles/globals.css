@@ -311,3 +311,166 @@ button, input, textarea, select { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* --------------------------------------------------------------------------
+   WORKSHOP EDITION — İstanbul yol servisi tabelaları ve basılı iş formları
+   -------------------------------------------------------------------------- */
+:root {
+  --ink: #23333b;
+  --ink-2: #30434b;
+  --ink-3: #3b5059;
+  --paper: #f2efe6;
+  --paper-2: #e6e0d2;
+  --white: #fffdf7;
+  --yellow: #d44a34;
+  --yellow-dark: #ae3728;
+  --muted: #667177;
+  --line: #b9b7ae;
+  --color-bg-dark: #23333b;
+  --color-bg-dark-soft: #30434b;
+  --color-bg-elevated: #3b5059;
+  --color-surface-dark: #30434b;
+  --color-surface-card: #30434b;
+  --color-surface-input: #23333b;
+  --color-brand-yellow: #d44a34;
+  --color-brand-yellow-hover: #ae3728;
+  --color-brand-yellow-active: #8e2b20;
+  --color-text-light: #fffdf7;
+  --color-text-muted-dark: #c8d0d1;
+  --color-text-dark: #23333b;
+  --color-border-dark: #60747b;
+  --color-border-light: #b9b7ae;
+}
+
+html { background: #23333b; }
+body { background: #f2efe6; color: #23333b; font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif; }
+.container { width: min(1180px, calc(100% - 56px)); }
+::selection { background: #9dc4c3; color: #17262d; }
+:focus-visible { outline-color: #d44a34; }
+
+.site-header { height: 82px; background: #f2efe6; color: #23333b; border-bottom: 2px solid #23333b; }
+.wordmark strong { color: #23333b; font-family: Georgia, serif; font-size: 19px; letter-spacing: .04em; }
+.wordmark small { color: #a43c2f; letter-spacing: .19em; }
+.desktop-nav a { color: #44555c; border-bottom-width: 4px; font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .045em; }
+.desktop-nav a:hover, .desktop-nav a.active { color: #23333b; border-color: #d44a34; }
+.header-contact { background: #d44a34; color: #fffaf0; transform: none; border-radius: 50%; min-width: 106px; width: 106px; height: 64px; padding: 0 12px; place-content: center; text-align: center; }
+.header-contact span { font-size: 8px; }
+.header-contact b { font-size: 12px; }
+.menu-toggle { border-color: #23333b; color: #23333b; }
+.mobile-menu { background: #f2efe6; }
+.mobile-menu nav a { color: #23333b; border-color: #b9b7ae; }
+.mobile-menu nav a span { color: #d44a34; }
+.mobile-menu-contact { background: #d44a34; color: white; }
+
+.home-hero { min-height: calc(100svh - 82px); background: #f2efe6; color: #23333b; border-bottom: 2px solid #23333b; }
+.home-hero::before { opacity: .22; background-image: linear-gradient(rgba(35,51,59,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(35,51,59,.13) 1px, transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(to right, black, transparent 68%); }
+.hero-road-mark { width: 9px; left: 54%; background: #d44a34; box-shadow: 0 0 0 13px #f2efe6, 0 0 0 15px #23333b; transform: rotate(9deg); }
+.hero-layout { min-height: calc(100svh - 136px); grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr); gap: 9vw; padding-top: 50px; }
+.eyebrow { color: #65737a; }
+.eyebrow span { color: #a43c2f; }
+.eyebrow i { background: #8b979b; }
+.hero-copy h1 { max-width: 740px; color: #23333b; font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: clamp(51px, 6vw, 82px); line-height: .98; letter-spacing: -.055em; }
+.hero-copy h1 em { color: #b44132; font-style: italic; font-weight: 400; }
+.hero-lead { color: #56666d; max-width: 590px; font-family: Arial, sans-serif; font-size: 17px; }
+.action-primary { background: #d44a34; color: #fffaf0; min-width: 298px; box-shadow: 6px 6px 0 #23333b; }
+.action-primary:hover { background: #b63d2e; }
+.action-icon { background: transparent; color: #fffaf0; border-right: 1px solid rgba(255,255,255,.45); }
+.action-secondary { color: #23333b; border: 2px solid #23333b; background: rgba(242,239,230,.78); }
+.action-secondary:hover { color: #a43c2f; border-color: #a43c2f; }
+.hero-note { color: #69767b; }
+.hero-note strong { color: #23333b; }
+.stage-index { color: #6d7b80; font-family: "Courier New", monospace; }
+.logo-stage { background: #d9e3df; border: 2px solid #23333b; transform: rotate(1.5deg); box-shadow: 12px 12px 0 #9dc4c3; }
+.logo-stage::before, .logo-stage::after, .logo-stage-ring { display: none; }
+.logo-stage img { width: 90%; height: 90%; filter: none; transform: rotate(-1.5deg); }
+.stage-route { color: #58696f; font-family: "Courier New", monospace; }
+.stage-route i { background: #8d999d; }
+.hero-ticker { background: #23333b; border-top: 0; }
+.ticker-inner { color: #d6dfde; font-family: "Courier New", monospace; }
+.ticker-inner i { color: #dc6a59; }
+
+.incident-section, .coverage-section, .price-section, .faq-section { background: #f2efe6; color: #23333b; }
+.section-kicker { color: #a43c2f; font-family: "Courier New", monospace; }
+.section-kicker.light { color: #f2d3c8; }
+.section-heading h2, .price-copy h2, .faq-intro h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: -.045em; }
+.split-heading > p, .incident-row p, .price-copy > p:not(.section-kicker), .faq-intro > p:last-child { font-family: Arial, sans-serif; }
+.incident-list, .price-factors, .accordion-list { border-top-color: #23333b; }
+.incident-row { color: #23333b; border-color: #b9b7ae; }
+.incident-row:hover { background: #9dc4c3; padding-inline: 22px; }
+.incident-number, .faq-index { color: #a43c2f; font-family: "Courier New", monospace; }
+.incident-row h3 { font-family: Georgia, serif; font-weight: 700; }
+.incident-tag { border-color: #718087; color: #52636a; font-family: "Courier New", monospace; }
+.availability-note span { border-radius: 50%; border-color: #a43c2f; color: #a43c2f; }
+
+.dispatch-section { background: #9dc4c3; color: #23333b; border-block: 2px solid #23333b; }
+.dispatch-title h2 { font-family: Georgia, serif; font-weight: 700; }
+.dispatch-title > p:not(.section-kicker), .dispatch-steps p { font-family: Arial, sans-serif; color: #40565d; }
+.dispatch-steps { border-top-color: #23333b; }
+.dispatch-steps li { border-color: rgba(35,51,59,.35); }
+.dispatch-steps li > span { color: #a43c2f; font-family: "Courier New", monospace; }
+
+.coverage-section { background: #e7e1d4; }
+.coverage-grid { background: #23333b; gap: 3px; border: 3px solid #23333b; }
+.district-umraniye { background: #2f525b; }
+.district-atasehir { background: #a94335; }
+.district-panel::after { display: none; }
+.district-panel::before { content: attr(class); position: absolute; right: -18px; top: 20px; color: rgba(255,255,255,.07); font-family: Georgia, serif; font-size: 76px; font-style: italic; white-space: nowrap; }
+.district-code, .district-panel div p { color: #f3e9d6; font-family: "Courier New", monospace; }
+.district-panel h3 { font-family: Georgia, serif; font-weight: 700; }
+.district-panel div span { color: #e2e5e2; font-family: Arial, sans-serif; }
+.district-panel b { color: #fff; border-color: rgba(255,255,255,.5); border-radius: 50%; }
+.road-line { border-color: #b9b7ae; font-family: "Courier New", monospace; }
+
+.price-section { background: #f2efe6; border-top-color: #b9b7ae; }
+.price-factors div { border-color: #b9b7ae; }
+.price-factors span { color: #a43c2f; font-family: "Courier New", monospace; }
+.price-factors strong { font-family: Georgia, serif; }
+
+.map-record-section { background: #a94335; color: #fffaf0; border-block: 2px solid #23333b; }
+.map-record-grid h2 { font-family: Georgia, serif; font-weight: 700; }
+.map-record-grid > div > p:last-child { color: #f0d8d0; font-family: Arial, sans-serif; }
+.map-record-link { color: #fffaf0; border: 2px solid #fffaf0; background: transparent; }
+.map-record-link small { color: #f4d6cc; }
+
+.faq-details { border-color: #b9b7ae; }
+.faq-details summary { font-family: Georgia, serif; }
+.faq-details summary b { border-radius: 50%; border-color: #7c898e; }
+.faq-details[open] summary b { background: #9dc4c3; border-color: #23333b; }
+.faq-answer { font-family: Arial, sans-serif; }
+
+.closing-cta { background: #d9e3df; color: #23333b; border-top: 2px solid #23333b; }
+.closing-inner h2 { font-family: Georgia, serif; font-weight: 700; }
+.closing-inner h2 em { color: #a43c2f; }
+.closing-button { background: #23333b; color: white; border-radius: 50%; min-width: 210px; width: 210px; height: 210px; grid-template-columns: 1fr; place-items: center; align-content: center; text-align: center; }
+.closing-button svg { color: #9dc4c3; }
+.closing-button b { display: none; }
+
+.card { background: #30434b; border-color: #60747b; }
+.badge { color: #f09a86; border-color: #71878f; }
+.btn-primary { background: #d44a34; color: #fffaf0; }
+.btn-outline { border-color: #8ba0a7; }
+.subpage-cta { background: #9dc4c3; color: #23333b; border-block: 2px solid #23333b; }
+.subpage-cta .btn-primary { background: #23333b; }
+.subpage-cta-inner > div > span { color: #40565d; }
+
+.site-footer { background: #23333b; border-top: 0; }
+.footer-brand span { color: #f09a86; }
+.footer-column a:hover { color: #f09a86; }
+.footer-bottom { color: #9eb0b5; border-color: #4a5f67; font-family: "Courier New", monospace; }
+.mobile-call { background: #d44a34; color: #fffaf0; }
+.mobile-action-bar { background: #23333b; }
+
+@media (max-width: 900px) {
+  .site-header { height: 72px; }
+  .mobile-menu { inset-block-start: 72px; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-road-mark { right: 7%; left: auto; opacity: .28; }
+  .logo-stage { transform: rotate(1deg); }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 30px, 560px); }
+  .hero-copy h1 { font-size: clamp(42px, 13vw, 55px); }
+  .logo-stage { box-shadow: 7px 7px 0 #9dc4c3; }
+  .closing-button { width: 100%; height: auto; min-height: 70px; border-radius: 0; grid-template-columns: 28px 1fr; }
+}

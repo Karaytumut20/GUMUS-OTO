@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="eyebrow"><span>ÜMRANİYE</span><i />ATAŞEHİR</p>
-            <h1>Yolda kaldıysanız,<br/><em>önce konumu gönderin.</em></h1>
+            <h1>Yolda kaldıysanız,<br/><em>konumu tarif edin.</em></h1>
             <p className="hero-lead">Aracınızın nerede ve ne durumda olduğunu söyleyin. Gümüş Oto Kurtarma, çekici ya da kurtarma ihtiyacını bu bilgiye göre netleştirsin.</p>
             <div className="hero-actions">
               <Link href={primaryHref} className="action-primary">
@@ -48,7 +48,7 @@ export default function HomePage() {
             <div className="hero-note"><strong>Ücret ve ulaşım süresi</strong><span>Konum, araç tipi ve yol durumuna göre görüşmede belirlenir.</span></div>
           </div>
           <div className="hero-brand-stage">
-            <p className="stage-index">İSTANBUL / ANADOLU YAKASI</p>
+            <p className="stage-index">SAHA NO: 34 / ANADOLU YAKASI</p>
             <div className="logo-stage">
               <span className="logo-stage-ring" aria-hidden="true" />
               <Image src={businessConfig.logoPath} alt="Gümüş Oto Kurtarma logosu" width={520} height={520} priority sizes="(max-width: 900px) 78vw, 500px" />
