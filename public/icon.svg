@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="7" fill="#0B0D10"/>
+  <rect x="1.5" y="1.5" width="29" height="29" rx="5.5" fill="none" stroke="#323B47" stroke-width="1"/>
+  <!-- Stylized G letter and Tow hook in Brand Yellow -->
+  <path d="M16 6C10.48 6 6 10.48 6 16s4.48 10 10 10c4.14 0 7.7-2.52 9.2-6.15h-3.6C20.4 21.6 18.35 23 16 23c-3.87 0-7-3.13-7-7s3.13-7 7-7c2.18 0 4.12 1 5.4 2.58l2.25-2.25C21.8 7.36 19.06 6 16 6z" fill="#FFC400"/>
+  <rect x="15" y="14" width="9" height="3.5" rx="1.5" fill="#FFC400"/>
+  <circle cx="23" cy="22" r="2" fill="#FFC400"/>
+</svg>
