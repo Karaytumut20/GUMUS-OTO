@@ -31,7 +31,6 @@ export default function HomePage() {
   return (
     <>
       <section className="home-hero">
-        <div className="hero-road-mark" aria-hidden="true" />
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="eyebrow"><span>ÜMRANİYE</span><i />ATAŞEHİR</p>

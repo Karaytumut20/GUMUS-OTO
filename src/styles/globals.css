@@ -71,7 +71,6 @@ button, input, textarea, select { font: inherit; }
 /* Home hero */
 .home-hero { position: relative; background: var(--ink); color: var(--white); min-height: calc(100svh - 78px); overflow: hidden; }
 .home-hero::before { content: ''; position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to right, black, transparent 76%); }
-.hero-road-mark { position: absolute; width: 12px; height: 150%; top: -25%; left: calc(50% - 6px); background: var(--yellow); transform: rotate(13deg); opacity: .96; box-shadow: 0 0 0 12px var(--ink), 0 0 0 14px #3b3d3f; }
 .hero-layout { min-height: calc(100svh - 132px); display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); align-items: center; gap: 8vw; position: relative; z-index: 1; padding-top: 56px; padding-bottom: 60px; }
 .hero-copy { max-width: 690px; }
 .eyebrow { display: flex; align-items: center; gap: 11px; color: #b7b9bb; font-size: 12px; letter-spacing: .17em; font-weight: 800; margin-bottom: 24px; }
@@ -242,7 +241,6 @@ button, input, textarea, select { font: inherit; }
   .mobile-menu { inset-block-start: 70px; }
   .wordmark img { width: 44px; height: 44px; }
   .hero-layout { grid-template-columns: 1fr; gap: 34px; min-height: auto; padding-top: 70px; padding-bottom: 46px; }
-  .hero-road-mark { left: auto; right: 11%; opacity: .45; }
   .hero-copy { position: relative; z-index: 2; }
   .hero-brand-stage { justify-self: center; width: min(82vw, 440px); }
   .stage-index { text-align: center; margin: 0; }
@@ -364,7 +362,6 @@ body { background: #f2efe6; color: #23333b; font-family: "Arial Narrow", "Frankl
 
 .home-hero { min-height: calc(100svh - 82px); background: #f2efe6; color: #23333b; border-bottom: 2px solid #23333b; }
 .home-hero::before { opacity: .22; background-image: linear-gradient(rgba(35,51,59,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(35,51,59,.13) 1px, transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(to right, black, transparent 68%); }
-.hero-road-mark { width: 9px; left: 54%; background: #d44a34; box-shadow: 0 0 0 13px #f2efe6, 0 0 0 15px #23333b; transform: rotate(9deg); }
 .hero-layout { min-height: calc(100svh - 136px); grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr); gap: 9vw; padding-top: 50px; }
 .eyebrow { color: #65737a; }
 .eyebrow span { color: #a43c2f; }
@@ -464,7 +461,6 @@ body { background: #f2efe6; color: #23333b; font-family: "Arial Narrow", "Frankl
   .site-header { height: 72px; }
   .mobile-menu { inset-block-start: 72px; }
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-road-mark { right: 7%; left: auto; opacity: .28; }
   .logo-stage { transform: rotate(1deg); }
 }
 
