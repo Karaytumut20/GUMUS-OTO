@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import StructuredData from '@/components/seo/StructuredData';
+import { businessConfig } from '@/config/business';
 
 export interface BreadcrumbItem {
   label: string;
@@ -11,6 +13,7 @@ interface BreadcrumbProps {
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
+    <>
     <nav aria-label="Breadcrumb" style={{ marginBottom: '24px' }}>
       <ol style={{
         display: 'flex',
@@ -45,5 +48,10 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
         })}
       </ol>
     </nav>
+    <StructuredData breadcrumbs={[
+      { name: 'Ana Sayfa', url: businessConfig.siteUrl },
+      ...items.map(item => ({ name: item.label, url: item.href }))
+    ]} />
+    </>
   );
 }

@@ -1,26 +1,27 @@
 import React from 'react';
-import { getLocalBusinessSchema, getBreadcrumbSchema } from '@/lib/structured-data';
+import { getLocalBusinessSchema, getWebSiteSchema, getBreadcrumbSchema } from '@/lib/structured-data';
 
 interface StructuredDataProps {
   breadcrumbs?: { name: string; url: string }[];
+  schemas?: Record<string, unknown>[];
 }
 
-export default function StructuredData({ breadcrumbs }: StructuredDataProps) {
-  const localBusiness = getLocalBusinessSchema();
-  const breadcrumbData = breadcrumbs ? getBreadcrumbSchema(breadcrumbs) : null;
+export default function StructuredData({ breadcrumbs, schemas = [] }: StructuredDataProps) {
+  const data = [
+    ...(!breadcrumbs && schemas.length === 0 ? [getLocalBusinessSchema(), getWebSiteSchema()] : []),
+    ...(breadcrumbs ? [getBreadcrumbSchema(breadcrumbs)] : []),
+    ...schemas
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-      />
-      {breadcrumbData && (
+      {data.map((schema, index) => (
         <script
+          key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-      )}
+      ))}
     </>
   );
 }

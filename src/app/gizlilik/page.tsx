@@ -2,14 +2,13 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { businessConfig } from '@/config/business';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Gizlilik Politikası | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Gizlilik Politikası',
   description: 'Gümüş Oto Kurtarma web sitesi gizlilik politikası, veri işleme ilkeleri ve üçüncü taraf servisler hakkında bilgilendirme.',
-  alternates: {
-    canonical: '/gizlilik/'
-  }
-};
+  canonical: '/gizlilik/'
+});
 
 export default function GizlilikPage() {
   return (

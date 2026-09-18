@@ -5,6 +5,8 @@ import Accordion from '@/components/ui/Accordion';
 import { businessConfig } from '@/config/business';
 import { faqsData } from '@/data/faqs';
 import { getPhoneHref, buildWhatsAppUrl } from '@/lib/urls';
+import StructuredData from '@/components/seo/StructuredData';
+import { getFaqSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Ümraniye ve Ataşehir Çekici | Gümüş Oto Kurtarma',
@@ -34,7 +36,7 @@ export default function HomePage() {
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="eyebrow"><span>ÜMRANİYE</span><i />ATAŞEHİR</p>
-            <h1>Yolda kaldın?<br/><em>Çekici yola çıksın.</em></h1>
+            <h1>Yolda mı kaldınız?<br/><em>Çekici hemen yola çıksın.</em></h1>
             <p className="hero-lead">Konumunu ve aracın durumunu ilet. Ümraniye ve Ataşehir çevresinde ihtiyaca uygun çekici yönlendirmesini birlikte netleştirelim.</p>
             <div className="hero-actions">
               <Link href={primaryHref} className="action-primary">
@@ -120,6 +122,7 @@ export default function HomePage() {
       <section className="faq-section" id="sss"><div className="container faq-layout"><div className="faq-intro"><p className="section-kicker">05 / KISA CEVAPLAR</p><h2>Yola çıkmadan önce.</h2><p>Çekici çağırırken çoğu sürücünün ilk sorduğu konular.</p></div><Accordion items={faqsData.slice(0, 6)} /></div></section>
 
       <section className="closing-cta"><div className="container closing-inner"><div><p>GÜMÜŞ OTO KURTARMA</p><h2>Konumu gönderin.<br/><em>Gerisini birlikte netleştirelim.</em></h2></div><Link href={messageHref} className="closing-button"><PinIcon /><span>İletişime geç</span><b>→</b></Link></div></section>
+      <StructuredData schemas={[getFaqSchema(faqsData.slice(0, 6).map(item => ({ question: item.question, answer: item.answer })))]} />
     </>
   );
 }

@@ -4,14 +4,16 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
+import StructuredData from '@/components/seo/StructuredData';
+import { businessConfig } from '@/config/business';
+import { getServiceSchema } from '@/lib/structured-data';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Oto Çekici Hizmeti | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Oto Çekici Hizmeti',
   description: 'Ümraniye ve Ataşehir çevresinde platformlu oto çekici hizmeti. Binek, SUV ve hafif ticari araçlar için güvenli taşıma ve servis nakli.',
-  alternates: {
-    canonical: '/hizmetler/oto-cekici/'
-  }
-};
+  canonical: '/hizmetler/oto-cekici/'
+});
 
 export default function OtoCekiciDetailPage() {
   return (
@@ -40,7 +42,7 @@ export default function OtoCekiciDetailPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
               gap: '40px',
               marginBottom: '48px'
             }}
@@ -134,6 +136,11 @@ export default function OtoCekiciDetailPage() {
         {heading:'Servise veya adrese teslim',body:'Teslim noktası bir servis, sanayi sitesi, otopark ya da özel adres olabilir. Giriş yüksekliği, rampa eğimi ve bırakma alanının genişliği bilinmelidir. Ümraniye ile Ataşehir arasındaki araç nakillerinde güzergâh, trafik ve olası ücretli geçişler ilk görüşmede değerlendirilerek taşıma planına dahil edilir.'}
       ]}/>
       <FinalCtaBand />
+      <StructuredData schemas={[getServiceSchema({
+        name: 'Oto Çekici Hizmeti',
+        description: metadata.description as string,
+        url: `${businessConfig.siteUrl}/hizmetler/oto-cekici/`
+      })]} />
     </>
   );
 }

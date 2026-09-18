@@ -35,6 +35,11 @@ export const metadata: Metadata = {
     'Finans Merkezi çekici'
   ],
   authors: [{ name: businessConfig.businessName }],
+  creator: businessConfig.brandName,
+  publisher: businessConfig.brandName,
+  applicationName: businessConfig.brandName,
+  category: 'Oto çekici ve oto kurtarma',
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
     title: 'Ümraniye ve Ataşehir Çekici | Gümüş Oto Kurtarma',
     description: 'Ümraniye ve Ataşehir çevresinde profesyonel oto çekici ve kurtarma hizmeti.',
@@ -59,7 +64,14 @@ export const metadata: Metadata = {
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1
+    }
   },
   icons: {
     icon: [

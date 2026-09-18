@@ -5,14 +5,13 @@ import WhatsAppMessageBuilder from '@/components/forms/WhatsAppMessageBuilder';
 import { businessConfig } from '@/config/business';
 import { getPhoneHref } from '@/lib/urls';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'İletişim & Konum Bildirme | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'İletişim ve Konum Bildirme',
   description: 'Gümüş Oto Kurtarma iletişim bilgileri, telefon arama bağlantısı, WhatsApp talep hazırlayıcı ve Google Haritalar işletme kaydı.',
-  alternates: {
-    canonical: '/iletisim/'
-  }
-};
+  canonical: '/iletisim/'
+});
 
 export default function IletisimPage() {
   const phoneHref = getPhoneHref();
@@ -37,7 +36,7 @@ export default function IletisimPage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
             gap: '40px',
             marginBottom: '64px'
           }}

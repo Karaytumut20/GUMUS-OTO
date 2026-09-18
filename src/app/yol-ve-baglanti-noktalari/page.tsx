@@ -3,14 +3,13 @@ import type { Metadata } from 'next';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import { roadsData } from '@/data/roads';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Yol ve Bağlantı Noktaları | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Yol ve Bağlantı Noktaları',
   description: 'TEM (O-2), D-100 (E-5), Şile Yolu ve sanayi bölgelerinde çekici çağırma, doğru konum bildirme ve emniyet rehberi.',
-  alternates: {
-    canonical: '/yol-ve-baglanti-noktalari/'
-  }
-};
+  canonical: '/yol-ve-baglanti-noktalari/'
+});
 
 export default function YolVeBaglantiNoktalariPage() {
   return (
@@ -53,7 +52,7 @@ export default function YolVeBaglantiNoktalariPage() {
               Otoyol ve çevre yollarında ters yöne girmemek veya ters şeritte kalmamak adına çekici ekibimize şu detayları aktarınız:
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px' }}>
               <div style={{ backgroundColor: '#f6f5f0', padding: '16px', borderRadius: '4px', border: '1px solid #d4d2cb' }}>
                 <strong style={{ color: '#765b00', display: 'block', marginBottom: '4px', fontWeight: 900 }}>1. Yol Adı</strong>
                 <span className="text-small" style={{ color: '#111517' }}>TEM (O-2), D-100 (E-5), Şile Yolu veya cadde adı.</span>
@@ -102,7 +101,7 @@ export default function YolVeBaglantiNoktalariPage() {
               Bölgesel Yol ve Kavşak Detayları
             </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
               {roadsData.map((road, idx) => (
                 <div key={idx} className="card">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>

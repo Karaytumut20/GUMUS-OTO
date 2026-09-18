@@ -4,14 +4,16 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
+import StructuredData from '@/components/seo/StructuredData';
+import { businessConfig } from '@/config/business';
+import { getServiceSchema } from '@/lib/structured-data';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Oto Kurtarma Hizmeti | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Oto Kurtarma Hizmeti',
   description: 'Ümraniye ve Ataşehir çevresinde zorlu durumlar için oto kurtarma desteği. Tekerleği kilitlenen, yoldan çıkan veya vinç gerektiren araçlar için profesyonel müdahale.',
-  alternates: {
-    canonical: '/hizmetler/oto-kurtarma/'
-  }
-};
+  canonical: '/hizmetler/oto-kurtarma/'
+});
 
 export default function OtoKurtarmaDetailPage() {
   return (
@@ -40,7 +42,7 @@ export default function OtoKurtarmaDetailPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
               gap: '40px',
               marginBottom: '48px'
             }}
@@ -131,6 +133,11 @@ export default function OtoKurtarmaDetailPage() {
         {heading:'Dar alan ve kapalı otopark',body:'Kapalı otoparklarda tavan yüksekliği, kolon aralığı, dönüş mesafesi ve rampa eğimi standart çekicinin girişini sınırlayabilir. Kat bilgisi, giriş yüksekliği tabelası ve aracın çıkış yönü talep sırasında paylaşılmalıdır. Ön değerlendirme yapıldıktan sonra alana uygun kurtarma yöntemi belirlenir.'}
       ]}/>
       <FinalCtaBand />
+      <StructuredData schemas={[getServiceSchema({
+        name: 'Oto Kurtarma Hizmeti',
+        description: metadata.description as string,
+        url: `${businessConfig.siteUrl}/hizmetler/oto-kurtarma/`
+      })]} />
     </>
   );
 }

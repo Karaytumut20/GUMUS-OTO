@@ -1,5 +1,6 @@
 import { ALL_NEIGHBORHOODS, Neighborhood } from './neighborhoods';
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 
 export type LocalAreaContext = {
   roads: string[];
@@ -88,16 +89,10 @@ export function getNeighborhoodPath(area: Neighborhood) {
 export function getNeighborhoodMetadata(area: Neighborhood): Metadata {
   const district = area.districtName;
   const canonical = getNeighborhoodPath(area);
-  return {
+  return createPageMetadata({
     title: `${area.name} Çekici | ${district} Oto Kurtarma`,
     description: `${area.name} Mahallesi ${district} çevresinde oto çekici, oto kurtarma ve araç nakli için konum ve araç bilgisiyle Gümüş Oto Kurtarma’ya ulaşın.`,
     keywords: getLocalKeywords(area),
-    alternates: { canonical },
-    openGraph: {
-      title: `${area.name} Çekici | ${district}`,
-      description: `${area.name} çevresinde araç çekici ve oto kurtarma bilgileri.`,
-      url: canonical,
-      type: 'website'
-    }
-  };
+    canonical
+  });
 }

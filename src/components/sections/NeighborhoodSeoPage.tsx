@@ -80,8 +80,7 @@ export default function NeighborhoodSeoPage({ area }: { area: Neighborhood }) {
 
       <section className="local-faq"><div className="container"><div><p className="subpage-index">SIK SORULANLAR</p><h2>{area.name} çekici hakkında</h2></div><div>{faq.map((x,i)=><article key={x.q}><span>0{i+1}</span><div><h3>{x.q}</h3><p>{x.a}</p></div></article>)}</div></div></section>
     </div>
-    {schemas.map((schema,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}} />)}
-    <StructuredData breadcrumbs={[{name:'Ana Sayfa',url:businessConfig.siteUrl},{name:`${area.districtName} Çekici`,url:`${businessConfig.siteUrl}${districtPath}`},{name:`${area.name} Çekici`,url:canonical}]} />
+    <StructuredData schemas={schemas} />
     <FinalCtaBand />
   </>;
 }

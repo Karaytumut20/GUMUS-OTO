@@ -127,7 +127,7 @@ export default function WhatsAppMessageBuilder() {
               value={locationUrl}
               aria-label="Eklenen konum linki"
               className="form-input"
-              style={{ flex: 1, minWidth: '220px', fontSize: '13px' }}
+              style={{ flex: '1 1 220px', minWidth: 0, fontSize: '13px' }}
             />
           )}
         </div>

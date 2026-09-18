@@ -6,14 +6,13 @@ import NeighborhoodSearch from '@/components/forms/NeighborhoodSearch';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
 import { UMRANIYE_NEIGHBORHOODS, ATASEHIR_NEIGHBORHOODS } from '@/data/neighborhoods';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Hizmet Bölgeleri ve Mahalle Rehberi | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Hizmet Bölgeleri ve Mahalle Rehberi',
   description: 'Ümraniye’nin 35 ve Ataşehir’in 17 mahallesini kapsayan kapsamlı çekici ve kurtarma bölge rehberi. Mahallenizi arayın ve hizmet detaylarını öğrenin.',
-  alternates: {
-    canonical: '/hizmet-bolgeleri/'
-  }
-};
+  canonical: '/hizmet-bolgeleri/'
+});
 
 export default function HizmetBolgeleriPage() {
   return (
@@ -38,7 +37,7 @@ export default function HizmetBolgeleriPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               gap: '24px',
               marginBottom: '48px'
             }}

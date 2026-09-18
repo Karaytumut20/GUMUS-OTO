@@ -5,14 +5,13 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
 import { servicesData, unverifiedServiceNotes } from '@/data/services';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Hizmetlerimiz | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Hizmetlerimiz',
   description: 'Ümraniye ve Ataşehir çevresinde sunduğumuz profesyonel oto çekici ve kurtarma hizmetlerinin kapsamı, taşıma süreçleri ve detayları.',
-  alternates: {
-    canonical: '/hizmetler/'
-  }
-};
+  canonical: '/hizmetler/'
+});
 
 export default function ServicesPage() {
   return (
@@ -41,7 +40,7 @@ export default function ServicesPage() {
                 className="card"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                   gap: '32px',
                   alignItems: 'center'
                 }}
@@ -122,7 +121,7 @@ export default function ServicesPage() {
               Aşağıdaki hizmetler marka ambleminde yer almakta olup, çağrı anındaki seyyar araç ve nöbetçi ekip uygunluğuna göre değerlendirilmektedir:
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
               {unverifiedServiceNotes.map((item, idx) => (
                 <div
                   key={idx}

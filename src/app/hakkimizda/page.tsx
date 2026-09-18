@@ -6,14 +6,13 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
 import { businessConfig } from '@/config/business';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Hakkımızda | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Hakkımızda',
   description: 'Gümüş Oto Kurtarma’nın çalışma anlayışı, Ümraniye ve Ataşehir çevresinde sunduğu şeffaf çekici ve yol yardım hizmet ilkeleri.',
-  alternates: {
-    canonical: '/hakkimizda/'
-  }
-};
+  canonical: '/hakkimizda/'
+});
 
 export default function HakkimizdaPage() {
   return (
@@ -37,7 +36,7 @@ export default function HakkimizdaPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
               gap: '48px',
               alignItems: 'center',
               marginBottom: '64px'
@@ -67,7 +66,7 @@ export default function HakkimizdaPage() {
             >
               <div
                 style={{
-                  width: '320px',
+                  width: 'min(100%, 320px)',
                   height: '320px',
                   position: 'relative',
                   borderRadius: '50%',
@@ -91,7 +90,7 @@ export default function HakkimizdaPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px',
               marginBottom: '56px'
             }}

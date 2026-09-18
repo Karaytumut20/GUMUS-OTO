@@ -2,6 +2,9 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import SeoTextGuide from '@/components/sections/SeoTextGuide';
+import StructuredData from '@/components/seo/StructuredData';
+import { businessConfig } from '@/config/business';
+import { getFaqSchema, getServiceSchema } from '@/lib/structured-data';
 
 type Neighborhood = { id: string; name: string; slug: string };
 interface Props { name:string; code:string; count:number; intro:string; summary:string; neighborhoods:Neighborhood[]; roads:string[]; landmarks:string[]; fieldNote:string; questions:{question:string;answer:string}[]; }
@@ -19,5 +22,13 @@ export default function DistrictEditorialPage(p: Props) {
       {heading:'Varış noktasını önceden belirleyin',body:`Aracın ${p.name} içindeki bir servise, sanayi sitesine, otoparka veya ilçe dışındaki başka bir noktaya bırakılacağını ilk görüşmede paylaşın. Alınış ve teslim adresleri belli olduğunda mesafe, yol koşulları ve olası geçişler birlikte değerlendirilir; taşıma planı ve ücret bilgisi daha net biçimde oluşturulur.`}
     ]}/>
     <section className="district-faq"><div className="container district-faq-grid"><div><p className="subpage-index">05 / SAHADAN SORULAR</p><h2>Kısa ve doğrudan.</h2></div><div>{p.questions.map((x,i)=><article key={x.question}><span>0{i+1}</span><div><h3>{x.question}</h3><p>{x.answer}</p></div></article>)}</div></div></section>
-  </div><FinalCtaBand/></>;
+  </div><StructuredData schemas={[
+    getServiceSchema({
+      name: `${p.name} Çekici ve Oto Kurtarma`,
+      description: p.summary,
+      url: `${businessConfig.siteUrl}/${slug}-cekici/`,
+      areaServed: `${p.name}, İstanbul`
+    }),
+    getFaqSchema(p.questions)
+  ]}/><FinalCtaBand/></>;
 }

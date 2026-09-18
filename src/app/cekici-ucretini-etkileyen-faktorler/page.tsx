@@ -5,14 +5,13 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
 import { businessConfig } from '@/config/business';
 import { getPhoneHref, buildWhatsAppUrl } from '@/lib/urls';
+import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Çekici Ücretini Etkileyen Faktörler | Gümüş Oto Kurtarma',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Çekici Ücretini Etkileyen Faktörler',
   description: 'Oto çekici ve kurtarma ücreti nasıl belirlenir? Mesafe, araç tipi, yürür aksam ve erişim şartlarının fiyata etkisi hakkında şeffaf rehber.',
-  alternates: {
-    canonical: '/cekici-ucretini-etkileyen-faktorler/'
-  }
-};
+  canonical: '/cekici-ucretini-etkileyen-faktorler/'
+});
 
 export default function PricingFactorsPage() {
   const phoneHref = getPhoneHref();

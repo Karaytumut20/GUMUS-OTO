@@ -22,7 +22,7 @@ export default function ServicesGrid() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
             gap: '32px',
             marginBottom: '48px'
           }}
@@ -155,7 +155,7 @@ export default function ServicesGrid() {
           <p className="text-small" style={{ marginBottom: '22px', lineHeight: 1.65, color: '#94A3B8' }}>
             İşletme logosunda akü takviye ve lastik yol yardım ibareleri yer almaktadır. Bu hizmetler seyyar müdahale aracı ve nöbetçi ekip uygunluğuna göre çağrı sırasında değerlendirilmektedir:
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
             {unverifiedServiceNotes.map((note, idx) => (
               <div
                 key={idx}
