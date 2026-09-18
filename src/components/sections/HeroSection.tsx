@@ -239,6 +239,7 @@ export default function HeroSection() {
 
             {/* Vitrin Cam Kartı */}
             <div
+              className="card dark-card"
               style={{
                 width: '100%',
                 maxWidth: '440px',

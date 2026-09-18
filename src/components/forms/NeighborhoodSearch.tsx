@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Neighborhood } from '@/data/neighborhoods';
 import { matchesQuery } from '@/lib/search-normalization';
+import { getNeighborhoodPath } from '@/data/local-seo';
 
 interface NeighborhoodSearchProps {
   umraniyeList: Neighborhood[];
@@ -28,47 +29,78 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
   const isSearching = query.trim().length > 0;
 
   return (
-    <div>
+    <div style={{ color: '#0b0d0e' }}>
       {/* Arama ve Filtre Kontrol Paneli */}
       <div
         className="card"
         style={{
           padding: '28px',
           marginBottom: '40px',
-          borderTop: '2px solid var(--color-brand-yellow)'
+          backgroundColor: '#ffffff',
+          border: '1px solid #c9c7c0',
+          borderTop: '4px solid #f2b705',
+          borderRadius: '4px',
+          boxShadow: '4px 4px 0 #d8d6ce'
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {/* İlçe Filtre Sekmeleri */}
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <button
               type="button"
               onClick={() => setSelectedTab('all')}
-              className={`scenario-chip ${selectedTab === 'all' ? 'active' : ''}`}
-              style={{ fontSize: '13.5px', padding: '8px 16px' }}
+              style={{
+                fontSize: '13px',
+                fontWeight: 900,
+                padding: '9px 18px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                border: selectedTab === 'all' ? '2px solid #0b0d0e' : '1px solid #c9c7c0',
+                backgroundColor: selectedTab === 'all' ? '#f2b705' : '#ffffff',
+                color: '#0b0d0e',
+                boxShadow: selectedTab === 'all' ? '2px 2px 0 #0b0d0e' : 'none'
+              }}
             >
               Tüm Mahalleler (52)
             </button>
             <button
               type="button"
               onClick={() => setSelectedTab('umraniye')}
-              className={`scenario-chip ${selectedTab === 'umraniye' ? 'active' : ''}`}
-              style={{ fontSize: '13.5px', padding: '8px 16px' }}
+              style={{
+                fontSize: '13px',
+                fontWeight: 900,
+                padding: '9px 18px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                border: selectedTab === 'umraniye' ? '2px solid #0b0d0e' : '1px solid #c9c7c0',
+                backgroundColor: selectedTab === 'umraniye' ? '#f2b705' : '#ffffff',
+                color: '#0b0d0e',
+                boxShadow: selectedTab === 'umraniye' ? '2px 2px 0 #0b0d0e' : 'none'
+              }}
             >
               Ümraniye ({filteredUmraniye.length})
             </button>
             <button
               type="button"
               onClick={() => setSelectedTab('atasehir')}
-              className={`scenario-chip ${selectedTab === 'atasehir' ? 'active' : ''}`}
-              style={{ fontSize: '13.5px', padding: '8px 16px' }}
+              style={{
+                fontSize: '13px',
+                fontWeight: 900,
+                padding: '9px 18px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                border: selectedTab === 'atasehir' ? '2px solid #0b0d0e' : '1px solid #c9c7c0',
+                backgroundColor: selectedTab === 'atasehir' ? '#f2b705' : '#ffffff',
+                color: '#0b0d0e',
+                boxShadow: selectedTab === 'atasehir' ? '2px 2px 0 #0b0d0e' : 'none'
+              }}
             >
               Ataşehir ({filteredAtasehir.length})
             </button>
           </div>
 
-          <label htmlFor="neighborhood-search-input" className="form-label" style={{ fontSize: '15px' }}>
-            <span>Mahallenizi veya Semtinizi Arayın</span>
+          <label htmlFor="neighborhood-search-input" style={{ fontSize: '15px', fontWeight: 900, color: '#0b0d0e' }}>
+            Mahallenizi veya Semtinizi Arayın
           </label>
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -79,9 +111,18 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Örn: Şerifali, Dudullu, İçerenköy, Barbaros, Çakmak..."
-                className="form-input"
                 aria-describedby="search-result-count"
-                style={{ paddingLeft: '44px' }}
+                style={{
+                  width: '100%',
+                  minHeight: '50px',
+                  padding: '12px 14px 12px 46px',
+                  border: '2px solid #8f9495',
+                  borderRadius: '4px',
+                  backgroundColor: '#ffffff',
+                  color: '#0b0d0e',
+                  fontSize: '15px',
+                  fontWeight: 600
+                }}
               />
               <div
                 style={{
@@ -89,11 +130,11 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                   left: '16px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  color: 'var(--color-text-muted-dark)',
+                  color: '#0b0d0e',
                   pointerEvents: 'none'
                 }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                   <circle cx="11" cy="11" r="8"/>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                 </svg>
@@ -104,17 +145,17 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                 type="button"
                 onClick={() => setQuery('')}
                 className="btn btn-outline"
-                style={{ minHeight: '48px', padding: '0 18px', fontSize: '14px' }}
+                style={{ minHeight: '50px', padding: '0 20px', fontSize: '14px', fontWeight: 900, color: '#0b0d0e', borderColor: '#0b0d0e' }}
               >
-                Temizle
+                Aramayı Temizle
               </button>
             )}
           </div>
 
-          <div id="search-result-count" className="text-small" style={{ color: 'var(--color-text-muted-dark)' }}>
+          <div id="search-result-count" style={{ fontSize: '14px', fontWeight: 700, color: '#4a5255' }}>
             {isSearching ? (
               <span>
-                <strong>{totalResults}</strong> mahalle bulundu (Ümraniye: {filteredUmraniye.length}, Ataşehir: {filteredAtasehir.length})
+                <strong style={{ color: '#0b0d0e' }}>{totalResults}</strong> mahalle bulundu (Ümraniye: {filteredUmraniye.length}, Ataşehir: {filteredAtasehir.length})
               </span>
             ) : (
               <span>
@@ -131,38 +172,23 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
           style={{
             textAlign: 'center',
             padding: '56px 24px',
-            borderTop: '2px solid rgba(255, 255, 255, 0.2)'
+            backgroundColor: '#ffffff',
+            border: '2px solid #0b0d0e',
+            borderRadius: '4px',
+            boxShadow: '4px 4px 0 #0b0d0e'
           }}
         >
-          <div
-            style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.05)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 16px auto',
-              color: 'var(--color-text-muted-dark)'
-            }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </div>
-          <p style={{ fontSize: '19px', fontWeight: 800, color: 'var(--color-white)', marginBottom: '8px' }}>
+          <p style={{ fontSize: '20px', fontWeight: 900, color: '#0b0d0e', marginBottom: '8px' }}>
             Aramanızla eşleşen mahalle bulunamadı: &quot;{query}&quot;
           </p>
-          <p className="text-small" style={{ maxWidth: '500px', margin: '0 auto 24px auto', color: '#94A3B8' }}>
+          <p style={{ maxWidth: '500px', margin: '0 auto 24px auto', color: '#565f63', fontSize: '14.5px' }}>
             Mahallenizin adını tam bilmiyor olsanız bile ilçe veya ana yol üzerinden bize ulaşıp konum paylaşabilirsiniz.
           </p>
           <button
             type="button"
             onClick={() => setQuery('')}
             className="btn btn-primary"
-            style={{ minHeight: '46px', padding: '0 24px', fontSize: '14px' }}
+            style={{ minHeight: '48px', padding: '0 26px', fontSize: '14px', fontWeight: 900 }}
           >
             Tüm Mahalleleri Göster
           </button>
@@ -181,21 +207,49 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                   gap: '16px',
                   marginBottom: '20px',
                   paddingBottom: '16px',
-                  borderBottom: '1px solid var(--color-border-dark)'
+                  borderBottom: '2px solid #0b0d0e'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                    <span className="badge">35 Mahalle</span>
-                    <h2 id="umraniye-heading" style={{ fontSize: '24px', fontWeight: 800 }}>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        padding: '4px 10px',
+                        backgroundColor: '#f2b705',
+                        color: '#0b0d0e',
+                        fontWeight: 900,
+                        fontSize: '11px',
+                        letterSpacing: '0.08em',
+                        borderRadius: '2px'
+                      }}
+                    >
+                      35 MAHALLE
+                    </span>
+                    <h2 id="umraniye-heading" style={{ fontSize: '24px', fontWeight: 900, color: '#0b0d0e' }}>
                       Ümraniye Mahalleleri
                     </h2>
                   </div>
-                  <p className="text-small">
+                  <p style={{ fontSize: '14px', color: '#111517', fontWeight: 600 }}>
                     Belediye haritalarındaki 35 mahallenin {isSearching ? `eşleşen ${filteredUmraniye.length} tanesi` : 'tamamı'}
                   </p>
                 </div>
-                <Link href="/umraniye-cekici/" className="btn btn-outline" style={{ minHeight: '42px', padding: '0 18px', fontSize: '14px' }}>
+                <Link
+                  href="/umraniye-cekici/"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    minHeight: '44px',
+                    padding: '0 20px',
+                    fontSize: '14px',
+                    fontWeight: 900,
+                    color: '#0b0d0e',
+                    border: '2px solid #0b0d0e',
+                    backgroundColor: '#ffffff',
+                    textDecoration: 'none',
+                    boxShadow: '2px 2px 0 #0b0d0e'
+                  }}
+                >
                   Ümraniye Çekici Sayfası →
                 </Link>
               </div>
@@ -208,29 +262,34 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                 }}
               >
                 {filteredUmraniye.map((item) => (
-                  <div
+                  <Link
                     key={item.id}
-                    className="card-interactive"
+                    href={getNeighborhoodPath(item)}
+                    className="neighborhood-link-card"
                     style={{
-                      backgroundColor: 'rgba(19, 27, 44, 0.65)',
-                      border: '1px solid var(--color-border-dark)',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: 'var(--radius-btn)',
+                      backgroundColor: '#ffffff',
+                      border: '1.5px solid #0b0d0e',
+                      borderLeft: '5px solid #f2b705',
+                      borderRadius: '4px',
                       padding: '14px 18px',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       gap: '4px',
-                      transition: 'all var(--transition-fast)'
+                      boxShadow: '3px 3px 0 #0b0d0e',
+                      transition: 'all 150ms ease',
+                      textDecoration: 'none',
+                      position: 'relative'
                     }}
                   >
-                    <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--color-text-light)' }}>
+                    <span style={{ fontSize: '16px', fontWeight: 900, color: '#0b0d0e', letterSpacing: '-0.01em' }}>
                       {item.name}
                     </span>
-                    <span style={{ fontSize: '12px', color: 'var(--color-brand-yellow)', fontWeight: 600 }}>
+                    <span style={{ fontSize: '11px', color: '#0b0d0e', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       Ümraniye
                     </span>
-                  </div>
+                    <span aria-hidden="true" style={{ position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)', fontWeight: 900 }}>→</span>
+                  </Link>
                 ))}
               </div>
             </section>
@@ -248,21 +307,49 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                   gap: '16px',
                   marginBottom: '20px',
                   paddingBottom: '16px',
-                  borderBottom: '1px solid var(--color-border-dark)'
+                  borderBottom: '2px solid #0b0d0e'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                    <span className="badge">17 Mahalle</span>
-                    <h2 id="atasehir-heading" style={{ fontSize: '24px', fontWeight: 800 }}>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        padding: '4px 10px',
+                        backgroundColor: '#f2b705',
+                        color: '#0b0d0e',
+                        fontWeight: 900,
+                        fontSize: '11px',
+                        letterSpacing: '0.08em',
+                        borderRadius: '2px'
+                      }}
+                    >
+                      17 MAHALLE
+                    </span>
+                    <h2 id="atasehir-heading" style={{ fontSize: '24px', fontWeight: 900, color: '#0b0d0e' }}>
                       Ataşehir Mahalleleri
                     </h2>
                   </div>
-                  <p className="text-small">
+                  <p style={{ fontSize: '14px', color: '#111517', fontWeight: 600 }}>
                     Muhtarlıklar listesindeki 17 mahallenin {isSearching ? `eşleşen ${filteredAtasehir.length} tanesi` : 'tamamı'}
                   </p>
                 </div>
-                <Link href="/atasehir-cekici/" className="btn btn-outline" style={{ minHeight: '42px', padding: '0 18px', fontSize: '14px' }}>
+                <Link
+                  href="/atasehir-cekici/"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    minHeight: '44px',
+                    padding: '0 20px',
+                    fontSize: '14px',
+                    fontWeight: 900,
+                    color: '#0b0d0e',
+                    border: '2px solid #0b0d0e',
+                    backgroundColor: '#ffffff',
+                    textDecoration: 'none',
+                    boxShadow: '2px 2px 0 #0b0d0e'
+                  }}
+                >
                   Ataşehir Çekici Sayfası →
                 </Link>
               </div>
@@ -275,29 +362,34 @@ export default function NeighborhoodSearch({ umraniyeList, atasehirList }: Neigh
                 }}
               >
                 {filteredAtasehir.map((item) => (
-                  <div
+                  <Link
                     key={item.id}
-                    className="card-interactive"
+                    href={getNeighborhoodPath(item)}
+                    className="neighborhood-link-card"
                     style={{
-                      backgroundColor: 'rgba(19, 27, 44, 0.65)',
-                      border: '1px solid var(--color-border-dark)',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: 'var(--radius-btn)',
+                      backgroundColor: '#ffffff',
+                      border: '1.5px solid #0b0d0e',
+                      borderLeft: '5px solid #0b0d0e',
+                      borderRadius: '4px',
                       padding: '14px 18px',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       gap: '4px',
-                      transition: 'all var(--transition-fast)'
+                      boxShadow: '3px 3px 0 #0b0d0e',
+                      transition: 'all 150ms ease',
+                      textDecoration: 'none',
+                      position: 'relative'
                     }}
                   >
-                    <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--color-text-light)' }}>
+                    <span style={{ fontSize: '16px', fontWeight: 900, color: '#0b0d0e', letterSpacing: '-0.01em' }}>
                       {item.name}
                     </span>
-                    <span style={{ fontSize: '12px', color: '#38BDF8', fontWeight: 600 }}>
+                    <span style={{ fontSize: '11px', color: '#0b0d0e', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       Ataşehir
                     </span>
-                  </div>
+                    <span aria-hidden="true" style={{ position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)', fontWeight: 900 }}>→</span>
+                  </Link>
                 ))}
               </div>
             </section>

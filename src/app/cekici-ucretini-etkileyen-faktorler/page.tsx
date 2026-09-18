@@ -74,17 +74,18 @@ export default function PricingFactorsPage() {
           {/* Neden Sahte Fiyat Tablosu Kullanmıyoruz */}
           <div
             style={{
-              backgroundColor: 'var(--color-surface-card)',
-              border: '1px solid var(--color-border-dark)',
-              borderRadius: 'var(--radius-card)',
+              backgroundColor: '#ffffff',
+              border: '1px solid #b8b6af',
+              borderRadius: '4px',
               padding: '32px',
-              marginBottom: '48px'
+              marginBottom: '48px',
+              boxShadow: '4px 4px 0 #d8d6ce'
             }}
           >
-            <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--color-white)', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 900, color: '#0b0d0e', marginBottom: '12px' }}>
               ℹ️ Dürüst Hizmet: Neden Sabit &quot;X TL&quot; Fiyat Yazmıyoruz?
             </h2>
-            <p style={{ lineHeight: 1.7, color: 'var(--color-text-muted-dark)' }}>
+            <p style={{ lineHeight: 1.7, color: '#111517' }}>
               Piyasada sıkça rastlanan &quot;100 TL’den başlayan çekici&quot; gibi yanıltıcı ifadeler, araç başına gidildiğinde katlanan ek ücretlerle sonuçlanmaktadır. Gümüş Oto Kurtarma olarak, aracınızın tam modelini, bulunduğu yeri ve gideceği noktayı çağrı sırasında dinleyip baştan <strong>net ve kesin ücreti</strong> bildiriyoruz. Onayınız olmadan hiçbir gizli maliyet çıkarılmaz.
             </p>
           </div>
@@ -95,16 +96,18 @@ export default function PricingFactorsPage() {
               <div
                 key={idx}
                 style={{
-                  backgroundColor: 'var(--color-surface-card)',
-                  border: '1px solid var(--color-border-dark)',
-                  borderRadius: 'var(--radius-card)',
-                  padding: '24px 28px'
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #b8b6af',
+                  borderLeft: '5px solid #f2b705',
+                  borderRadius: '4px',
+                  padding: '24px 28px',
+                  boxShadow: '3px 3px 0 #dedcd5'
                 }}
               >
-                <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--color-brand-yellow)', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '18px', fontWeight: 900, color: '#0b0d0e', marginBottom: '8px' }}>
                   {factor.title}
                 </h3>
-                <p style={{ lineHeight: 1.65, color: 'var(--color-text-light)' }}>
+                <p style={{ lineHeight: 1.65, color: '#111517' }}>
                   {factor.desc}
                 </p>
               </div>
@@ -114,17 +117,18 @@ export default function PricingFactorsPage() {
           {/* Doğrudan Fiyat Bilgisi Alma Çağrısı */}
           <div
             style={{
-              backgroundColor: 'var(--color-surface-dark)',
-              border: '1px solid var(--color-border-dark)',
-              borderRadius: 'var(--radius-card)',
+              backgroundColor: '#ffffff',
+              border: '2px solid #0b0d0e',
+              borderRadius: '4px',
               padding: '36px',
-              textAlign: 'center'
+              textAlign: 'center',
+              boxShadow: '6px 6px 0 #f2b705'
             }}
           >
-            <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--color-white)', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: '#0b0d0e', marginBottom: '12px' }}>
               Aracınız İçin Net Fiyat Bilgisi Alın
             </h2>
-            <p className="text-small" style={{ maxWidth: '600px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+            <p className="text-small" style={{ maxWidth: '600px', margin: '0 auto 24px auto', lineHeight: 1.6, color: '#111517' }}>
               Konumunuzu ve aracınızın durumunu paylaşarak birkaç dakika içinde net ücret teklifinizi alabilirsiniz.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://gumus-oto-kurtarma.brave-cove-9820.chatgpt.site/sitemap.xml

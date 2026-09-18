@@ -1,6 +1,9 @@
 node_modules/
 .next/
 .next-stale/
+.next-stale-seo*/
+.next-stale-*/
 out/
 .sites-runtime/
+.openai/
 *.log

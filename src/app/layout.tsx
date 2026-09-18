@@ -19,7 +19,20 @@ export const metadata: Metadata = {
     'Gümüş oto kurtarma',
     'Ümraniye oto çekici',
     'Ataşehir oto çekici',
-    'oto kurtarma İstanbul'
+    'oto kurtarma İstanbul',
+    'en yakın çekici',
+    'acil çekici',
+    'araç çekici',
+    'yol yardım',
+    'oto kurtarıcı',
+    'servise araç nakli',
+    'TEM çekici',
+    'Şile Yolu çekici',
+    'D-100 çekici',
+    'Dudullu çekici',
+    'İçerenköy çekici',
+    'Şerifali çekici',
+    'Finans Merkezi çekici'
   ],
   authors: [{ name: businessConfig.businessName }],
   openGraph: {

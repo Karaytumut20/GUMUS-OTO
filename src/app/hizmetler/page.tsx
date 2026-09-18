@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FinalCtaBand from '@/components/sections/FinalCtaBand';
+import SeoTextGuide from '@/components/sections/SeoTextGuide';
 import { servicesData, unverifiedServiceNotes } from '@/data/services';
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function ServicesPage() {
                       {svc.id === 'oto-cekici' ? '🚛' : '🏗️'}
                     </div>
                     <div>
-                      <h2 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)' }}>
+                      <h2 style={{ fontSize: '26px', fontWeight: 900, color: '#0b0d0e' }}>
                         {svc.title}
                       </h2>
                       <span className="badge badge-info" style={{ fontSize: '11px' }}>
@@ -72,7 +73,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <p style={{ marginBottom: '20px', lineHeight: 1.7 }}>
+                  <p style={{ marginBottom: '20px', lineHeight: 1.7, color: '#111517' }}>
                     {svc.fullDescription}
                   </p>
 
@@ -83,18 +84,18 @@ export default function ServicesPage() {
 
                 <div
                   style={{
-                    backgroundColor: 'var(--color-surface-dark)',
-                    border: '1px solid var(--color-border-dark)',
-                    borderRadius: 'var(--radius-btn)',
+                    backgroundColor: '#f6f5f0',
+                    border: '1px solid #d4d2cb',
+                    borderRadius: '4px',
                     padding: '24px'
                   }}
                 >
-                  <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--color-brand-yellow)', marginBottom: '12px' }}>
+                  <h3 style={{ fontSize: '16px', fontWeight: 900, color: '#765b00', marginBottom: '12px' }}>
                     Süreç Nasıl İlerler?
                   </h3>
                   <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {svc.processSummary.map((proc, idx) => (
-                      <li key={idx} style={{ fontSize: '14px', color: 'var(--color-text-muted-dark)', lineHeight: 1.55 }}>
+                      <li key={idx} style={{ fontSize: '14px', color: '#111517', lineHeight: 1.55 }}>
                         {proc}
                       </li>
                     ))}
@@ -107,16 +108,17 @@ export default function ServicesPage() {
           {/* İkincil / Doğrulama Aşamasındaki Hizmetler */}
           <div
             style={{
-              backgroundColor: 'var(--color-surface-card)',
-              border: '1px solid var(--color-border-dark)',
-              borderRadius: 'var(--radius-card)',
-              padding: '32px'
+              backgroundColor: '#ffffff',
+              border: '1px solid #b8b6af',
+              borderRadius: '4px',
+              padding: '32px',
+              boxShadow: '4px 4px 0 #d8d6ce'
             }}
           >
-            <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--color-white)', marginBottom: '12px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 900, color: '#0b0d0e', marginBottom: '12px' }}>
               Ek Hizmetler ve Operasyonel Kapsam
             </h3>
-            <p className="text-small" style={{ marginBottom: '24px', lineHeight: 1.6 }}>
+            <p className="text-small" style={{ marginBottom: '24px', lineHeight: 1.6, color: '#111517' }}>
               Aşağıdaki hizmetler marka ambleminde yer almakta olup, çağrı anındaki seyyar araç ve nöbetçi ekip uygunluğuna göre değerlendirilmektedir:
             </p>
 
@@ -125,19 +127,19 @@ export default function ServicesPage() {
                 <div
                   key={idx}
                   style={{
-                    backgroundColor: 'var(--color-surface-dark)',
-                    border: '1px solid var(--color-border-dark)',
-                    borderRadius: 'var(--radius-btn)',
+                    backgroundColor: '#f6f5f0',
+                    border: '1px solid #d4d2cb',
+                    borderRadius: '4px',
                     padding: '20px'
                   }}
                 >
-                  <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--color-brand-yellow)', marginBottom: '6px' }}>
+                  <h4 style={{ fontSize: '16px', fontWeight: 900, color: '#0b0d0e', marginBottom: '6px' }}>
                     {item.title}
                   </h4>
-                  <p className="text-small" style={{ marginBottom: '8px' }}>
+                  <p className="text-small" style={{ marginBottom: '8px', color: '#111517' }}>
                     {item.sourceNote}
                   </p>
-                  <span style={{ fontSize: '12px', color: 'var(--color-silver)', fontStyle: 'italic' }}>
+                  <span style={{ fontSize: '12px', color: '#765b00', fontWeight: 700 }}>
                     Durum: {item.status}
                   </span>
                 </div>
@@ -147,6 +149,11 @@ export default function ServicesPage() {
         </div>
       </div>
 
+      <SeoTextGuide kicker="HİZMET SEÇİM REHBERİ" title="Aracın durumuna uygun hizmeti belirleyin" lead="Her yolda kalma olayı aynı ekipmanı gerektirmez. İlk görüşmede paylaşacağınız kısa bilgiler, standart oto çekici ile teknik kurtarma operasyonu arasındaki ayrımın doğru yapılmasını sağlar." items={[
+        {heading:'Standart oto çekici ne zaman uygundur?',body:'Motor veya şanzıman arızası nedeniyle çalışmayan, servise ya da ekspertize taşınacak ve düz zeminde bulunan araçlar çoğunlukla platformlu oto çekiciyle alınabilir. Otomatik vitesli ve elektrikli araçlarda tüm tekerleklerin platform üzerinde taşınması önem taşır. Araç modelini ve vites türünü talep sırasında belirtin.'},
+        {heading:'Oto kurtarma ne zaman gerekir?',body:'Araç yoldan çıkmışsa, kaldırıma veya bariyere oturmuşsa, bir ya da daha fazla tekerlek kilitliyse standart yükleme yeterli olmayabilir. Eğim, zemin, dar alan ve hasar durumu vinç, makara veya yardımcı ekipman ihtiyacını belirler. Konumu ve aracın dört tarafından çekilmiş fotoğrafları paylaşmak değerlendirmeyi kolaylaştırır.'},
+        {heading:'Talep öncesinde hangi bilgiler hazırlanmalı?',body:'Canlı konum, araç marka ve modeli, alınış noktası, bırakılacak servis veya otopark, tekerlek ve direksiyon durumu ile bulunduğunuz yolun yönünü hazır edin. Ümraniye veya Ataşehir çekici talebinde bu bilgiler ekipman planını, tahmini varış değerlendirmesini ve ücret görüşmesini daha açık hale getirir.'}
+      ]}/>
       <FinalCtaBand />
     </>
   );

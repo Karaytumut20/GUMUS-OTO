@@ -34,8 +34,8 @@ export default function HomePage() {
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="eyebrow"><span>ÜMRANİYE</span><i />ATAŞEHİR</p>
-            <h1>Yolda kaldıysanız,<br/><em>konumu tarif edin.</em></h1>
-            <p className="hero-lead">Aracınızın nerede ve ne durumda olduğunu söyleyin. Gümüş Oto Kurtarma, çekici ya da kurtarma ihtiyacını bu bilgiye göre netleştirsin.</p>
+            <h1>Yolda kaldın?<br/><em>Çekici yola çıksın.</em></h1>
+            <p className="hero-lead">Konumunu ve aracın durumunu ilet. Ümraniye ve Ataşehir çevresinde ihtiyaca uygun çekici yönlendirmesini birlikte netleştirelim.</p>
             <div className="hero-actions">
               <Link href={primaryHref} className="action-primary">
                 <span className="action-icon"><PhoneIcon /></span>
@@ -47,12 +47,12 @@ export default function HomePage() {
             <div className="hero-note"><strong>Ücret ve ulaşım süresi</strong><span>Konum, araç tipi ve yol durumuna göre görüşmede belirlenir.</span></div>
           </div>
           <div className="hero-brand-stage">
-            <p className="stage-index">SAHA NO: 34 / ANADOLU YAKASI</p>
+            <p className="stage-index">GÜMÜŞ OTO KURTARMA / SAHA EKİBİ</p>
             <div className="logo-stage">
               <span className="logo-stage-ring" aria-hidden="true" />
               <Image src={businessConfig.logoPath} alt="Gümüş Oto Kurtarma logosu" width={520} height={520} priority sizes="(max-width: 900px) 78vw, 500px" />
             </div>
-            <div className="stage-route"><span>41.0036° K</span><i /><span>29.1248° D</span></div>
+
           </div>
         </div>
         <div className="hero-ticker" aria-label="Hizmet özeti"><div className="container ticker-inner"><span>OTO ÇEKİCİ</span><i>•</i><span>OTO KURTARMA</span><i>•</i><span>35 ÜMRANİYE MAHALLESİ</span><i>•</i><span>17 ATAŞEHİR MAHALLESİ</span></div></div>
@@ -89,7 +89,33 @@ export default function HomePage() {
         <div className="price-factors"><div><span>01</span><strong>Alış ve bırakış noktası</strong></div><div><span>02</span><strong>Araç tipi ve ölçüsü</strong></div><div><span>03</span><strong>Tekerlek ve yürür aksam durumu</strong></div><div><span>04</span><strong>Yükleme alanına erişim</strong></div></div>
       </div></section>
 
-      <section className="map-record-section"><div className="container map-record-grid"><div><p className="section-kicker light">İŞLETME KAYDI</p><h2>Konumu ve işletme kaydını haritada görün.</h2><p>Güncel işletme bilgileri ve yol tarifi için doğrudan Google Haritalar kaydını açın.</p></div><a href={businessConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="map-record-link"><PinIcon /><span><small>GOOGLE HARİTALAR</small>İşletme kaydını aç</span><Arrow /></a></div></section>
+      <section className="map-record-section">
+        <div className="container map-record-grid">
+          <div>
+            <p className="section-kicker light">İŞLETME KAYDI</p>
+            <h2>Konumu ve işletme kaydını haritada görün.</h2>
+            <p>Güncel işletme bilgileri ve yol tarifi için doğrudan Google Haritalar kaydını açın.</p>
+          </div>
+          <a href={businessConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="map-record-link">
+            <PinIcon />
+            <span><small>GOOGLE HARİTALAR</small>İşletme kaydını aç</span>
+            <Arrow />
+          </a>
+        </div>
+        {/* Gömülü Harita */}
+        <div style={{ marginTop: '32px', borderTop: '2px solid var(--black)', lineHeight: 0 }}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.991227804236!2d29.124806799999998!3d41.0035652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac93ce5518717%3A0x9ce591bdf15c3c57!2zw5xtcmFuaXllIMOHZWtpY2kgQXRhxZ9laGlyIMOHZWtpY2kgR8O8bcO8xZ8gT3RvIEt1cnRhcm1h!5e0!3m2!1str!2sus!4v1789765369086!5m2!1str!2sus"
+            width="100%"
+            height="420"
+            style={{ border: 0, display: 'block' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Gümüş Oto Kurtarma — Google Haritalar Konumu"
+          />
+        </div>
+      </section>
 
       <section className="faq-section" id="sss"><div className="container faq-layout"><div className="faq-intro"><p className="section-kicker">05 / KISA CEVAPLAR</p><h2>Yola çıkmadan önce.</h2><p>Çekici çağırırken çoğu sürücünün ilk sorduğu konular.</p></div><Accordion items={faqsData.slice(0, 6)} /></div></section>
 

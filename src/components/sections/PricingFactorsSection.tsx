@@ -111,9 +111,11 @@ export default function PricingFactorsSection() {
           {factors.map((item, idx) => (
             <div
               key={idx}
-              className="card"
+              className="card dark-card"
               style={{
-                padding: '30px 28px'
+                padding: '30px 28px',
+                background: 'linear-gradient(160deg, rgba(24,34,53,0.85) 0%, rgba(12,17,28,0.92) 100%)',
+                border: '1px solid rgba(255,255,255,0.1)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
@@ -146,7 +148,7 @@ export default function PricingFactorsSection() {
 
         {/* Fiyat Şeffaflığı Çağrı Kartı */}
         <div
-          className="card"
+          className="card dark-card"
           style={{
             background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(14, 20, 34, 0.85) 100%)',
             border: '1px solid rgba(245, 158, 11, 0.35)',
@@ -175,7 +177,7 @@ export default function PricingFactorsSection() {
             >
               Fiyat Bilgisi İçin Ara ↗
             </a>
-            <Link href="/cekici-ucretini-etkileyen-faktorler/" className="btn btn-outline" style={{ padding: '0 20px' }}>
+            <Link href="/cekici-ucretini-etkileyen-faktorler/" className="btn" style={{ padding: '0 20px', background: 'transparent', border: '2px solid rgba(255,255,255,0.35)', color: '#fff' }}>
               Detaylı Rehber →
             </Link>
           </div>

@@ -16,17 +16,18 @@ export default function NotFound() {
       <div
         style={{
           maxWidth: '560px',
-          backgroundColor: 'var(--color-surface-card)',
-          border: '1px solid var(--color-border-dark)',
-          borderRadius: 'var(--radius-card)',
-          padding: '48px 32px'
+          backgroundColor: '#ffffff',
+          border: '1px solid #b8b6af',
+          borderRadius: '4px',
+          padding: '48px 32px',
+          boxShadow: '4px 4px 0 #d8d6ce'
         }}
       >
         <span
           style={{
             fontSize: '72px',
             fontWeight: 900,
-            color: 'var(--color-brand-yellow)',
+            color: '#f2b705',
             lineHeight: 1,
             display: 'block',
             marginBottom: '16px'
@@ -34,10 +35,10 @@ export default function NotFound() {
         >
           404
         </span>
-        <h1 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', marginBottom: '16px' }}>
+        <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#0b0d0e', marginBottom: '16px' }}>
           Sayfa Bulunamadı
         </h1>
-        <p className="text-small" style={{ marginBottom: '32px', lineHeight: 1.6 }}>
+        <p className="text-small" style={{ marginBottom: '32px', lineHeight: 1.6, color: '#111517' }}>
           Aradığınız sayfa taşınmış, silinmiş veya hatalı yazılmış olabilir. Ümraniye ve Ataşehir oto çekici hizmetlerimiz için ana sayfamıza dönebilirsiniz.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>

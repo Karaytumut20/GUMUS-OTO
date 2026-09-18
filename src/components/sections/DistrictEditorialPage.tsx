@@ -1,0 +1,23 @@
+import Link from 'next/link';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import FinalCtaBand from '@/components/sections/FinalCtaBand';
+import SeoTextGuide from '@/components/sections/SeoTextGuide';
+
+type Neighborhood = { id: string; name: string; slug: string };
+interface Props { name:string; code:string; count:number; intro:string; summary:string; neighborhoods:Neighborhood[]; roads:string[]; landmarks:string[]; fieldNote:string; questions:{question:string;answer:string}[]; }
+
+export default function DistrictEditorialPage(p: Props) {
+  const slug=p.name.toLocaleLowerCase('tr-TR').replaceAll('ı','i').replaceAll('ş','s').replaceAll('ü','u').replaceAll('ö','o').replaceAll('ç','c').replaceAll('ğ','g');
+  return <><div className="subpage-shell"><div className="container"><Breadcrumb items={[{label:'Hizmet Bölgeleri',href:'/hizmet-bolgeleri/'},{label:`${p.name} Çekici`,href:`/${slug}-cekici/`}]}/></div>
+    <header className="district-hero"><div className="container district-hero-grid"><div><p className="subpage-index">HİZMET BÖLGESİ / {p.code}</p><h1>{p.name}<br/><em>çekici hizmeti</em></h1><p>{p.intro}</p><div className="district-actions"><Link href="/iletisim/">Konum ve araç bilgisi gönder <b>→</b></Link><Link href="/hizmetler/">Hizmeti belirleyin</Link></div></div><aside className="district-unit-card"><div><span>AKTİF HİZMET BÖLGESİ</span><b>{p.code}</b></div><strong>{p.count}<small>MAHALLE</small></strong><p>Ümraniye · Ataşehir<br/>İstanbul Anadolu Yakası</p></aside></div></header>
+    <section className="district-brief"><div className="container district-brief-grid"><div><p className="subpage-index">01 / SAHA YAPISI</p><h2>{p.name}’de konumu doğru tarif etmek.</h2><p>{p.summary}</p></div><aside><strong>SAHA NOTU</strong><p>{p.fieldNote}</p></aside></div></section>
+    <section className="route-register"><div className="container"><div className="register-heading"><div><p className="subpage-index">02 / ROTA KAYDI</p><h2>Yollar ve bilinen noktalar</h2></div><p>Mahalle adını bilmiyorsanız yakınınızdaki yol, kavşak veya bilinen merkezi söylemeniz yeterlidir.</p></div><div className="register-grid"><div><h3>ANA YOLLAR</h3>{p.roads.map((x,i)=><p key={x}><span>0{i+1}</span>{x}</p>)}</div><div><h3>BİLİNEN NOKTALAR</h3>{p.landmarks.map((x,i)=><p key={x}><span>0{i+1}</span>{x}</p>)}</div></div></div></section>
+    <section className="neighborhood-register"><div className="container"><div className="register-heading"><div><p className="subpage-index">03 / MAHALLE LİSTESİ</p><h2>{p.count} mahalle, tek listede.</h2></div><p>Mahalle sayfasını açarak bölgedeki çekici aramalarını, yakın yolları ve konum tarifinde gerekli bilgileri görebilirsiniz.</p></div><ol className="neighborhood-ledger">{p.neighborhoods.map((n,i)=><li key={n.id}><Link href={`/${slug}-cekici/${n.slug}-cekici/`}><span>{String(i+1).padStart(2,'0')}</span><b>{n.name}</b><i>→</i></Link></li>)}</ol></div></section>
+    <SeoTextGuide kicker="04 / BÖLGESEL ÇEKİCİ REHBERİ" title={`${p.name} çekici talebinde doğru hazırlık`} lead={`${p.name} genelinde oto çekici veya oto kurtarma talebi oluştururken konum, araç ve güzergâh bilgisinin eksiksiz verilmesi ekipman seçimini ve operasyon planını doğrudan etkiler.`} items={[
+      {heading:'Konumu yol yönüyle birlikte iletin',body:`${p.name} içinde aynı caddeye farklı bağlantılardan ulaşılabildiği için yalnızca mahalle adını yazmak yeterli olmayabilir. Canlı konum pinine ek olarak yolun yönünü, yakın kavşağı, bina numarasını veya görünen tabelayı paylaşın. Araç ana yol üzerindeyse emniyet şeridi, sağ şerit ya da kavşak içi gibi bekleme noktasını da belirtin.`},
+      {heading:'Araç durumunu açıkça tarif edin',body:'Aracın marka ve modeliyle birlikte otomatik ya da manuel vites bilgisini, tekerleklerin dönüp dönmediğini, direksiyon veya elektronik park freninin kilitli olup olmadığını söyleyin. Kaza sonrası kaporta teması, kırık aks ya da zemine oturma varsa fotoğraf gönderilmesi uygun çekici ve kurtarma ekipmanının seçilmesini kolaylaştırır.'},
+      {heading:'Varış noktasını önceden belirleyin',body:`Aracın ${p.name} içindeki bir servise, sanayi sitesine, otoparka veya ilçe dışındaki başka bir noktaya bırakılacağını ilk görüşmede paylaşın. Alınış ve teslim adresleri belli olduğunda mesafe, yol koşulları ve olası geçişler birlikte değerlendirilir; taşıma planı ve ücret bilgisi daha net biçimde oluşturulur.`}
+    ]}/>
+    <section className="district-faq"><div className="container district-faq-grid"><div><p className="subpage-index">05 / SAHADAN SORULAR</p><h2>Kısa ve doğrudan.</h2></div><div>{p.questions.map((x,i)=><article key={x.question}><span>0{i+1}</span><div><h3>{x.question}</h3><p>{x.answer}</p></div></article>)}</div></div></section>
+  </div><FinalCtaBand/></>;
+}

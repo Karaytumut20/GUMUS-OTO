@@ -28,12 +28,14 @@ export default function RegionOverview() {
           {districts.map((district) => (
             <div
               key={district.id}
-              className="card"
+              className="card dark-card"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 padding: '36px',
+                background: 'linear-gradient(160deg, rgba(24,34,53,0.85) 0%, rgba(12,17,28,0.92) 100%)',
+                border: '1px solid rgba(255,255,255,0.1)',
                 borderTop: district.id === 'umraniye' ? '2px solid var(--color-brand-yellow)' : '2px solid #38BDF8'
               }}
             >
@@ -123,8 +125,8 @@ export default function RegionOverview() {
               <div>
                 <Link
                   href={district.pagePath}
-                  className="btn btn-outline"
-                  style={{ width: '100%', minHeight: '50px', fontSize: '15px', fontWeight: 700 }}
+                  className="btn"
+                  style={{ width: '100%', minHeight: '50px', fontSize: '15px', fontWeight: 700, background: 'transparent', border: '2px solid rgba(255,255,255,0.3)', color: '#fff' }}
                 >
                   {district.name} Çekici Sayfası ve Mahalleler →
                 </Link>

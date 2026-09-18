@@ -29,15 +29,14 @@ export const businessConfig: BusinessConfig = {
   brandName: "Gümüş Oto Kurtarma",
   businessName: "Ümraniye Çekici Ataşehir Çekici Gümüş Oto Kurtarma",
   // Örnek alan adı referansı. Satın alındığı iddia edilmez.
-  siteUrl: "https://gumus-oto-kurtarma.brave-cove-9820.chatgpt.site",
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "https://gumusotokurtarma.com").replace(/\/$/, ""),
   
-  // KRİTİK VERİ: Telefon numarası işletme tarafından henüz teyit edilmemiştir.
-  // Brief gereği sahte numara veya rastgele 05xx YAZILMAZ.
-  phoneDisplay: null,
-  phoneE164: null,
+  // İşletme tarafından teyit edilmiş telefon numarası
+  phoneDisplay: "0 (543) 711 43 80",
+  phoneE164: "+905437114380",
   
-  // WhatsApp numarası telefonla aynı varsayılmaz. Doğrulama bekleniyor.
-  whatsappNumber: null,
+  // WhatsApp hattı — telefon numarasıyla aynı
+  whatsappNumber: "+905418238815",
   
   email: null,
   
@@ -73,11 +72,9 @@ export const businessConfig: BusinessConfig = {
   logoPath: "/images/gumus-oto-kurtarma-logo.webp",
   
   verificationNotes: {
-    lastVerifiedDate: "2026-09-18",
+    lastVerifiedDate: "2026-09-19",
     verifiedBy: "Sistem Teknik İncelemesi",
     missingCriticalFields: [
-      "phoneDisplay & phoneE164 (İşletme telefon numarası)",
-      "whatsappNumber (İşletme WhatsApp hattı)",
       "is24HoursVerified (7/24 çalışma saatinin operasyonel teyidi)",
       "addressPublic (Fiziksel müşteri kabul noktası mı yoksa yalnızca mobil hizmet bölgesi mi olduğu teyidi)"
     ]

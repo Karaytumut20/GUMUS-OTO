@@ -30,12 +30,15 @@ export default function ServicesGrid() {
           {servicesData.map((svc) => (
             <div
               key={svc.id}
-              className="card"
+              className="card dark-card"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                padding: '36px 32px'
+                padding: '36px 32px',
+                background: 'linear-gradient(160deg, rgba(24,34,53,0.85) 0%, rgba(12,17,28,0.92) 100%)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderTop: '2px solid var(--color-brand-yellow)'
               }}
             >
               <div>
@@ -119,7 +122,7 @@ export default function ServicesGrid() {
 
         {/* Amblemde Belirtilen Ek Hizmetler Hakkında Şeffaf Not */}
         <div
-          className="card"
+          className="card dark-card"
           style={{
             background: 'linear-gradient(160deg, rgba(24, 34, 53, 0.8) 0%, rgba(13, 19, 32, 0.9) 100%)',
             borderTop: '2px solid var(--color-brand-yellow)',
